@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const request = new XMLHttpRequest();
+
+        request.open('GET', 'https://openweathermap.org');
+
+        request.send();
+
+        request.onload = function(event) {
+            console.log(event.target.response);
+        }
+
+        const weatherRequest = new XMLHttpRequest();
+
+        weatherRequest.open('GET', 'https://api.openweathermap.org/data/2.5/weather?lat=55&lon=37&appid=85ed15b3e81d7e0c16510a6160d80b94');
+
+        weatherRequest.send();
+
+        weatherRequest.onload = function(event) {
+            console.log(event.target.response);
+        }
+
+
+    </script>
+</body>
+</html>

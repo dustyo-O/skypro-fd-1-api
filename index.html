@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const request = new XMLHttpRequest();
+
+        const title = 'Тест';
+        const body = 'Тело поста';
+        request.open('POST', 'https://jsonplaceholder.typicode.com/posts');
+        request.responseType = 'json';
+        request.setRequestHeader('Content-type', 'application/json');
+
+        request.send(JSON.stringify({
+            title,
+            body,
+        }, null, 4));
+
+        request.onload = function(event) {
+            console.log(event.target);
+            console.log(request.response);
+        }
+    </script>
+</body>
+</html>

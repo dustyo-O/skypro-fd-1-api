@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const request = new XMLHttpRequest();
+
+        const token = 'dict.1.1.20220223T155457Z.5046e52f6a5095ee.ede41fc3d2f60783ad80353c7f147ade94ff328a';
+        const text = 'пост';
+        request.open('POST', 'https://dictionary.yandex.net/api/v1/dicservice.json/lookup');
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        request.responseType = 'json';
+
+        const params = new URLSearchParams();
+
+        params.append('key', token);
+        params.append('lang', 'ru-ru');
+        params.append('text', text);
+
+        request.send(params.toString());
+
+        request.onload = function(event) {
+            console.log(event.target);
+            console.log(request.response);
+        }
+    </script>
+</body>
+</html>
